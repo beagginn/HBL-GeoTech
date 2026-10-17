@@ -1,0 +1,366 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#203329">
+    <meta name="description" content="HBL GeoTech — soluções em geoprocessamento, análise territorial e tecnologia geográfica.">
+
+    <title>HBL GeoTech | Inteligência geográfica</title>
+
+    <link rel="stylesheet" href="{% static 'hbl/style.css' %}">
+    <script src="{% static 'hbl/script.js' %}" defer></script>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <a href="#inicio" class="marca" aria-label="HBL GeoTech - Página inicial">
+
+            <img
+                src="{% static 'hbl/images/logo.png' %}"
+                alt="Símbolo da HBL GeoTech"
+                class="logo"
+            >
+
+            <span class="marca-nome">HBL GeoTech</span>
+
+        </a>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="menu" id="menu-principal">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre nós</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="#contato" class="menu-contato">
+                Fale conosco <span>↗</span>
+            </a>
+        </nav>
+    </header>
+
+
+    <main>
+
+
+        <!-- SEÇÃO INICIAL -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-conteudo">
+
+                <h1>
+                    Precisão em cada coordenada.
+                </h1>
+
+                <p class="hero-descricao">
+                    Transformamos dados geográficos em informações
+                    estratégicas para compreender territórios e
+                    construir soluções inteligentes.
+                </p>
+
+                <div class="hero-acoes">
+                    <a href="#servicos" class="botao botao-principal">
+                        Conheça nossas soluções <span>↗</span>
+                    </a>
+
+                    <a href="#sobre" class="link-secundario">
+                        Descubra a HBL <span>↓</span>
+                    </a>
+                </div>
+
+        </section>
+
+        <!-- SOBRE A EMPRESA -->
+        <section class="sobre secao" id="sobre">
+
+            <div class="sobre-esquerda">
+                <span class="sobretitulo">01 / QUEM SOMOS</span>
+
+                <h2>
+                    A tecnologia<br>
+                    encontra o<br>
+                    <span>território.</span>
+                </h2>
+
+                <div class="sobre-assinatura">
+                    <span class="assinatura-linha"></span>
+                    <span>HBL GEOTECH</span>
+                </div>
+            </div>
+
+            <div class="sobre-direita">
+                <p class="sobre-destaque">
+                    A HBL GeoTech nasceu da vontade de transformar
+                    conhecimento técnico em soluções que fazem a diferença.
+                </p>
+
+                <p class="sobre-texto">
+                    Somos uma startup voltada à geotecnologia e ao
+                    geoprocessamento. Unimos conhecimento, análise
+                    espacial e ferramentas digitais para tornar
+                    informações geográficas mais úteis para a tomada
+                    de decisões.
+                </p>
+
+                <p class="sobre-texto">
+                    Acreditamos que compreender o espaço é um passo
+                    fundamental para planejar, analisar e desenvolver
+                    soluções mais inteligentes.
+                </p>
+
+                <a href="#contato" class="link-seta">
+                    Vamos conversar <span>↗</span>
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- SERVIÇOS -->
+        <section class="servicos secao" id="servicos">
+
+            <div class="secao-cabecalho">
+                <div>
+                    <span class="sobretitulo">02 / O QUE FAZEMOS</span>
+
+                    <h2>
+                        Soluções que<br>
+                        <span>conectam dados e espaço.</span>
+                    </h2>
+                </div>
+
+                <p class="secao-introducao">
+                    Utilizamos ferramentas geográficas para transformar
+                    dados em conhecimento e apoiar diferentes demandas
+                    territoriais.
+                </p>
+            </div>
+
+            <div class="servicos-grid">
+
+                <article class="servico-card">
+                    <span class="servico-numero">01</span>
+
+                    <div class="servico-icone" aria-hidden="true">⌖</div>
+
+                    <h3>Geoprocessamento</h3>
+
+                    <p>
+                        Tratamento, organização e análise de dados
+                        geográficos para gerar informações espaciais.
+                    </p>
+
+                    <a href="#contato" class="servico-link" aria-label="Consultar sobre geoprocessamento">
+                        <span>Saiba mais</span>
+                        <span>↗</span>
+                    </a>
+                </article>
+
+
+                <article class="servico-card servico-card-destaque">
+                    <span class="servico-numero">02</span>
+
+                    <div class="servico-icone" aria-hidden="true">⌘</div>
+
+                    <h3>Mapeamento digital</h3>
+
+                    <p>
+                        Elaboração de mapas temáticos e representações
+                        cartográficas para visualizar informações.
+                    </p>
+
+                    <a href="#contato" class="servico-link" aria-label="Consultar sobre mapeamento digital">
+                        <span>Saiba mais</span>
+                        <span>↗</span>
+                    </a>
+                </article>
+
+
+                <article class="servico-card">
+                    <span class="servico-numero">03</span>
+
+                    <div class="servico-icone" aria-hidden="true">◎</div>
+
+                    <h3>Análise territorial</h3>
+
+                    <p>
+                        Interpretação de informações espaciais para
+                        apoiar estudos e compreender características
+                        de diferentes áreas.
+                    </p>
+
+                    <a href="#contato" class="servico-link" aria-label="Consultar sobre análise territorial">
+                        <span>Saiba mais</span>
+                        <span>↗</span>
+                    </a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- DIFERENCIAIS -->
+        <section class="diferenciais secao" id="diferenciais">
+
+            <div class="diferenciais-conteudo">
+                <span class="sobretitulo sobretitulo-claro">03 / NOSSO DIFERENCIAL</span>
+
+                <h2>
+                    Mais do que<br>
+                    mapas, <span>novas<br>possibilidades.</span>
+                </h2>
+
+                <p>
+                    Acreditamos no poder da informação geográfica
+                    para revelar padrões, compreender cenários e
+                    apoiar decisões mais conscientes.
+                </p>
+
+                <a href="#contato" class="botao botao-claro">
+                    Conheça nosso trabalho <span>↗</span>
+                </a>
+            </div>
+
+            <div class="diferenciais-lista">
+
+                <article class="diferencial-item">
+                    <span class="diferencial-numero">01</span>
+
+                    <div>
+                        <h3>Olhar analítico</h3>
+                        <p>
+                            Informações organizadas para facilitar
+                            a compreensão de fenômenos espaciais.
+                        </p>
+                    </div>
+
+                    <span class="diferencial-seta">↗</span>
+                </article>
+
+                <article class="diferencial-item">
+                    <span class="diferencial-numero">02</span>
+
+                    <div>
+                        <h3>Tecnologia aplicada</h3>
+                        <p>
+                            Ferramentas digitais utilizadas para
+                            transformar dados em informação útil.
+                        </p>
+                    </div>
+
+                    <span class="diferencial-seta">↗</span>
+                </article>
+
+                <article class="diferencial-item">
+                    <span class="diferencial-numero">03</span>
+
+                    <div>
+                        <h3>Soluções personalizadas</h3>
+                        <p>
+                            Atenção às necessidades e aos objetivos
+                            de cada projeto.
+                        </p>
+                    </div>
+
+                    <span class="diferencial-seta">↗</span>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTATO -->
+        <section class="contato secao" id="contato">
+
+            <div class="contato-conteudo">
+                <span class="sobretitulo">04 / ENTRE EM CONTATO</span>
+
+                <h2>
+                    Vamos olhar<br>
+                    para o futuro<br>
+                    <span>juntos?</span>
+                </h2>
+
+                <p>
+                    Tem um projeto ou quer conhecer nossas soluções?
+                    Entre em contato com a HBL GeoTech.
+                </p>
+
+                <a
+                    href="https://wa.me/SEUNUMERO"
+                    class="botao botao-principal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Converse com a HBL <span>↗</span>
+                </a>
+
+                <small>
+                    Substitua SEUNUMERO pelo número de WhatsApp da empresa,
+                    incluindo o código do país e o DDD, sem espaços ou símbolos.
+                </small>
+            </div>
+
+            <div class="contato-grafismo" aria-hidden="true">
+                <div class="grafismo-anel anel-um"></div>
+                <div class="grafismo-anel anel-dois"></div>
+                <div class="grafismo-anel anel-tres"></div>
+                <span class="grafismo-centro">HBL</span>
+                <span class="grafismo-legenda">GEOTECH</span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <div class="rodape-superior">
+
+            <a href="#inicio" class="marca marca-rodape" aria-label="Voltar ao início">
+                <img
+                    src="{% static 'hbl/images/logo.png' %}"
+                    alt="Logo HBL GeoTech"
+                    class="logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                >
+                <span class="logo-texto">HBL<span>GeoTech</span></span>
+            </a>
+
+            <p>
+                Inteligência geográfica<br>
+                para novas perspectivas.
+            </p>
+
+            <a href="#inicio" class="voltar-topo">
+                Voltar ao topo ↑
+            </a>
+
+        </div>
+
+        <div class="rodape-inferior">
+            <span>© <span id="ano-atual"></span> HBL GeoTech. Todos os direitos reservados.</span>
+            <span>TECNOLOGIA • TERRITÓRIO • INOVAÇÃO</span>
+        </div>
+
+    </footer>
+
+</body>
+</html>
