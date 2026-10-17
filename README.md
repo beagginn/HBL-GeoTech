@@ -1,4 +1,4 @@
-<img src="static/HBL/images/logo do lado.png" width="300" height="400">
+<img src="hbl/static/HBL/images/logo%20do%20lado.png" width="300">
 
 Site institucional da **HBL GeoTech**, desenvolvido para apresentar a empresa, seus serviços e seus diferenciais.
 
