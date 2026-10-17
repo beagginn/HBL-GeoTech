@@ -4,8 +4,6 @@ Site institucional da **HBL GeoTech**, desenvolvido para apresentar a empresa, s
 
 ## Tecnologias
 
-As tecnologias utilizadas devem corresponder à implementação atual do projeto. A estrutura prevista inclui:
-
 - HTML5
 - CSS3
 - Python
