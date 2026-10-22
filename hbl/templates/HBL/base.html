@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="HBL GeoTech — Inteligência geográfica para novas perspectivas."
+    >
+
+    <title>{% block title %}HBL GeoTech | Inteligência Geográfica{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="{% static 'hbl/images/logo.png' %}"
+    >
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="{% static 'hbl/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a
+            href="{% url 'home' %}#inicio"
+            class="marca"
+            aria-label="HBL GeoTech - Página inicial"
+        >
+
+            <img
+                src="{% static 'hbl/images/logo.png' %}"
+                alt="Símbolo da HBL GeoTech"
+                class="logo"
+            >
+
+            <span class="marca-nome">HBL GeoTech</span>
+
+        </a>
+
+
+        <!-- BOTÃO DO MENU MOBILE -->
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <!-- MENU DE NAVEGAÇÃO -->
+        <nav class="menu" id="menu-principal">
+
+            <a href="{% url 'home' %}#inicio">
+                Início
+            </a>
+
+            <a href="{% url 'home' %}#sobre">
+                Sobre nós
+            </a>
+
+            <a href="{% url 'home' %}#servicos">
+                Serviços
+            </a>
+
+            <a href="{% url 'home' %}#diferenciais">
+                Diferenciais
+            </a>
+
+            <a href="{% url 'catalogo_servicos' %}">
+                Catálogo
+            </a>
+
+            <a href="{% url 'home' %}#portfolio">
+                Portfólio
+            </a>
+
+            <a
+                href="{% url 'home' %}#contato"
+                class="menu-contato"
+            >
+                Fale conosco <span>↗</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
+
+        <div class="rodape-superior">
+
+            <div class="rodape-identidade">
+                <a href="{% url 'home' %}#inicio" class="marca marca-rodape">
+                    <span class="logo-texto">HBL GeoTech
+                </a>
+
+                <p>
+                    Tecnologia e inteligência geográfica.
+                </p>
+            </div>
+
+            <nav class="rodape-menu">
+                <a href="{% url 'home' %}#inicio">Início</a>
+                <a href="{% url 'home' %}#sobre">Sobre</a>
+                <a href="{% url 'home' %}#servicos">Serviços</a>
+                <a href="{% url 'home' %}#diferenciais">Diferenciais</a>
+                <a href="{% url 'catalogo_servicos' %}">Catálogo</a>
+                <a href="{% url 'home' %}#portfolio">Portfólio</a>
+                <a href="{% url 'home' %}#contato">Contato</a>
+            </nav>
+
+        </div>
+
+        <div class="rodape-inferior">
+
+            <span>
+                © <span id="ano-atual"></span>
+                HBL GeoTech. Todos os direitos reservados.
+            </span>
+
+            <a href="{% url 'home' %}#inicio" class="voltar-topo">
+                Voltar ao topo <span>↑</span>
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <script src="{% static 'hbl/js/script.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+
+
+    <!-- ANO AUTOMÁTICO -->
+    <script>
+        const elementoAno = document.getElementById("ano-atual");
+
+        if (elementoAno) {
+            elementoAno.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+
+</html>

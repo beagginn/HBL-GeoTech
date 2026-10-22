@@ -1,0 +1,131 @@
+{% extends "hbl/base.html" %}
+{% load static %}
+
+{% block title %}Catálogo | HBL GeoTech{% endblock %}
+
+{% block content %}
+
+<!-- CABEÇALHO VISUAL DO CATÁLOGO -->
+<section class="catalogo-hero">
+    <div class="catalogo-container">
+
+        <div class="catalogo-breadcrumb">
+            <a href="{% url 'home' %}">Início</a>
+            <span>/</span>
+            <span>Catálogo</span>
+        </div>
+
+        <h1>Catálogo de serviços</h1>
+
+        <p>Soluções em geotecnologia.</p>
+
+    </div>
+</section>
+
+
+<!-- CONTEÚDO DO CATÁLOGO -->
+<section class="catalogo-conteudo">
+    <div class="catalogo-container">
+
+        <div class="catalogo-titulo">
+            <h2>Nossos serviços</h2>
+
+            <span>
+                {% if servicos %}
+                    {{ servicos|length }} serviço{{ servicos|length|pluralize:"s" }}
+                {% else %}
+                    Em preparação
+                {% endif %}
+            </span>
+        </div>
+
+
+        {% if servicos %}
+
+            <!-- CARDS DOS SERVIÇOS -->
+            <div class="catalogo-grid">
+
+                {% for servico in servicos %}
+
+                    <article class="servico-card">
+
+                        {% if servico.imagem %}
+                            <div class="servico-card-imagem">
+                                <img
+                                    src="{{ servico.imagem.url }}"
+                                    alt="{{ servico.nome }}"
+                                    loading="lazy"
+                                >
+                            </div>
+                        {% endif %}
+
+                        <div class="servico-card-conteudo">
+
+                            <h3>{{ servico.nome }}</h3>
+
+                            <p>{{ servico.descricao }}</p>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+        {% else %}
+
+            <!-- ESTADO VAZIO: MANTER A MENSAGEM DA REFERÊNCIA -->
+            <div class="catalogo-vazio">
+
+                <svg
+                    class="catalogo-icone"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/>
+                    <path d="m3 12 9 4.5 9-4.5"/>
+                    <path d="m3 16.5 9 4.5 9-4.5"/>
+                </svg>
+
+                <h3>Catálogo em preparação</h3>
+
+                <p>
+                    Os produtos ainda não foram publicados. Em breve, você<br class="desktop-only">
+                    poderá conhecer cada solução por aqui.
+                </p>
+
+                <a
+                    href="{% url 'home' %}#contato"
+                    class="catalogo-botao"
+                >
+                    Fale com a HBL GeoTech <span>↗</span>
+                </a>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- LINK PARA O PORTFÓLIO -->
+        <div class="catalogo-rodape">
+
+            <a href="{% url 'home' %}#portfolio">
+                Ver portfólio <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
