@@ -12,7 +12,7 @@ from .forms import ServicoForm, ProjetoPortfolioForm
 
 
 def home(request):
-    return render(request, "hbl/index.html")
+    return render(request, "HBL/index.html")
 
 
 def catalogo_servicos(request):
