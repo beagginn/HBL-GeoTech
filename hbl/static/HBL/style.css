@@ -1,18 +1,4 @@
-@font-face {
-    font-family: "Codec Pro";
-    src: url("fonts/CodecPro.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: "TT Norms";
-    src: url("fonts/TTNorms.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-}
 
 :root {
     --verde-escuro: #203329;
@@ -20,8 +6,8 @@
     --verde-suave: #8b987c;
     --bege: #F4F1E9;
 
-    --fonte-titulo: "Codec Pro", Arial, sans-serif;
-    --fonte-texto: "TT Norms", Arial, sans-serif;
+    --fonte-titulo: Arial, sans-serif;
+    --fonte-texto: Arial, sans-serif;
 
     --largura-maxima: 1440px;
     --transicao: 0.3s ease;
@@ -305,7 +291,7 @@ h4 {
                 rgba(244, 241, 233, 0.35) 90%,
                 #F4F1E9 100%
             ),
-            url("../images/fundo.jpg");
+            url("./images/fundo.jpg");
 
         background-size: cover;
         background-position: center;
@@ -709,51 +695,6 @@ h4 {
     line-height: 1.5;
 }
 
-/* Grafismo circular decorativo */
-
-.servico-grafismo {
-    position: absolute;
-    z-index: 0;
-
-    top: 42px;
-    right: 39px;
-
-    width: 39px;
-    height: 39px;
-
-    border-radius: 50%;
-
-    background:
-        repeating-radial-gradient(
-            circle,
-            transparent 0,
-            transparent 3px,
-            rgba(84, 102, 79, 0.09) 3.5px,
-            transparent 4px
-        );
-
-    opacity: 0.85;
-    pointer-events: none;
-}
-
-/* Pequeno detalhe central do grafismo */
-
-.servico-grafismo::after {
-    content: "";
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 3px;
-    height: 3px;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-    background: rgba(84, 102, 79, 0.2);
-}
-
 /* Títulos dos cards */
 
 .servico-card h3 {
@@ -1109,6 +1050,8 @@ h4 {
 
 .contato-conteudo .botao {
     margin-top: 30px;
+    border: 1px solid var(--verde-medio);
+
 }
 
 .contato-conteudo small {
@@ -1842,7 +1785,7 @@ h4 {
             rgba(0, 0, 0, 0.60) 55%,
             rgba(0, 0, 0, 0.48) 100%
         ),
-        url("images/fundo.jpg");
+        url("./images/fundo.jpg");
 }
 
 /* =========================================
@@ -2690,7 +2633,7 @@ h4 {
             rgba(32, 51, 41, 0.82),
             rgba(32, 51, 41, 0.82)
         ),
-        url("/static/hbl/images/fundo.jpg") center / cover no-repeat;
+        url("/static/HBL/images/fundo.jpg") center / cover no-repeat;
 }
 
 .catalogo-container {
@@ -2973,3 +2916,307 @@ h4 {
         flex-direction: column;
     }
 }
+
+/* ========================================
+   PORTFÓLIO HBL GEOTECH
+======================================== */
+
+.portfolio-hero {
+    position: relative;
+    min-height: 490px;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #F4F1E9;
+
+    background:
+        linear-gradient(
+            rgba(32, 51, 41, 0.82),
+            rgba(32, 51, 41, 0.82)
+        ),
+        url("/static/HBL/images/fundo.jpg") center / cover no-repeat;
+}
+
+.portfolio-container {
+    width: min(100% - 64px, 1270px);
+    margin-inline: auto;
+}
+
+.portfolio-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    color: rgba(244, 241, 233, 0.7);
+    font-size: 14px;
+}
+
+.portfolio-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.portfolio-etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+    color: #A2AA87;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.portfolio-ponto {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #A2AA87;
+}
+
+.portfolio-hero h1 {
+    margin: 0 0 28px;
+    font-size: clamp(38px, 4.5vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    font-weight: 700;
+}
+
+.portfolio-hero > .portfolio-container > p {
+    margin: 0;
+    color: rgba(244, 241, 233, 0.75);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* ÁREA DOS PROJETOS */
+
+.portfolio-conteudo {
+    padding: 96px 0 110px;
+    background: #F4F1E9;
+    color: #203329;
+}
+
+.portfolio-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #D8D5CB;
+}
+
+.portfolio-titulo h2 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: -0.8px;
+}
+
+.portfolio-titulo > span {
+    color: #68745E;
+    font-size: 12px;
+}
+
+
+/* ESTADO VAZIO */
+
+.portfolio-vazio {
+    min-height: 428px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.portfolio-icone {
+    display: block;
+    flex-shrink: 0;
+    margin-bottom: 28px;
+    color: #89977A;
+}
+
+.portfolio-vazio h3 {
+    margin: 0 0 18px;
+    color: #203329;
+    font-size: 26px;
+    letter-spacing: -0.7px;
+}
+
+.portfolio-vazio p {
+    margin: 0 0 32px;
+    color: #68745E;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.portfolio-botao {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 25px;
+    background: #203329;
+    color: #F4F1E9;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s ease;
+}
+
+.portfolio-botao:hover {
+    background: #54664F;
+}
+
+
+/* CARDS DOS PROJETOS */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    padding: 40px 0 60px;
+}
+
+.portfolio-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #DEDCD2;
+    background: #FAF8F2;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(32, 51, 41, 0.08);
+}
+
+.portfolio-card-imagem {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #E7E5DC;
+}
+
+.portfolio-card-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-card-conteudo {
+    padding: 24px;
+}
+
+.portfolio-card-conteudo h3 {
+    margin: 0 0 12px;
+    color: #203329;
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.portfolio-card-conteudo p {
+    margin: 0;
+    color: #68745E;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* RODAPÉ INTERNO DO PORTFÓLIO */
+
+.portfolio-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 36px;
+    border-top: 1px solid #D8D5CB;
+}
+
+.portfolio-rodape p {
+    margin: 0;
+    color: #68745E;
+    font-size: 14px;
+}
+
+.portfolio-rodape a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #203329;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.portfolio-rodape a:hover {
+    color: #68745E;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+    .portfolio-hero {
+        min-height: 420px;
+    }
+
+    .portfolio-container {
+        width: calc(100% - 40px);
+    }
+
+    .portfolio-conteudo {
+        padding: 64px 0 72px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .portfolio-vazio {
+        min-height: 380px;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .portfolio-hero h1 {
+        font-size: 38px;
+        letter-spacing: -1px;
+    }
+
+    .portfolio-breadcrumb {
+        margin-bottom: 38px;
+    }
+
+    .portfolio-titulo h2,
+    .portfolio-vazio h3 {
+        font-size: 22px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-vazio p {
+        font-size: 14px;
+    }
+
+    .portfolio-rodape {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+

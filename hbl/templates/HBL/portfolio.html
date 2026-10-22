@@ -1,0 +1,130 @@
+{% extends "hbl/base.html" %}
+{% load static %}
+
+{% block title %}Catálogo | HBL GeoTech{% endblock %}
+
+{% block content %}
+
+<!-- CABEÇALHO VISUAL DO PORTFÓLIO -->
+<section class="portfolio-hero">
+    <div class="portfolio-container">
+
+        <div class="portfolio-breadcrumb">
+            <a href="{% url 'home' %}">Início</a>
+            <span>/</span>
+            <span>Portfólio</span>
+        </div>
+
+        <h1>Portfólio</h1>
+
+        <p>Conheça alguns dos trabalhos desenvolvidos pela HBL GeoTech em geoprocessamento e análise territorial.</p>
+
+    </div>
+</section>
+
+
+<!-- CONTEÚDO DO PORTFÓLIO -->
+<section class="portfolio-conteudo">
+    <div class="portfolio-container">
+
+        <div class="portfolio-titulo">
+            <h2>Nossos projetos</h2>
+
+            <span>
+                {% if projetos %}
+                    {{ projetos|length }} projeto{{ projetos|length|pluralize:"s" }}
+                {% else %}
+                    Em preparação
+                {% endif %}
+            </span>
+        </div>
+
+
+        {% if projetos %}
+
+            <!-- CARDS DOS PROJETOS -->
+            <div class="portfolio-grid">
+
+                {% for projeto in projetos %}
+
+                    <article class="portfolio-card">
+
+                        {% if projeto.imagem %}
+                            <div class="portfolio-card-imagem">
+                                <img
+                                    src="{{ projeto.imagem.url }}"
+                                    alt="{{ projeto.titulo }}"
+                                    loading="lazy"
+                                >
+                            </div>
+                        {% endif %}
+
+                        <div class="portfolio-card-conteudo">
+
+                            <h3>{{ projeto.titulo }}</h3>
+
+                            <p>{{ projeto.descricao }}</p>
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+        {% else %}
+
+            <!-- ESTADO VAZIO: MANTER A MENSAGEM DA REFERÊNCIA -->
+            <div class="portfolio-vazio">
+
+                <svg
+                    class="portfolio-icone"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/>
+                    <path d="m3 12 9 4.5 9-4.5"/>
+                    <path d="m3 16.5 9 4.5 9-4.5"/>
+                </svg>
+
+                <h3>Novos projetos em breve</h3>
+
+                <p>
+                    Estamos preparando a apresentação dos nossos<br class="desktop-only">
+                    trabalhos. Volte em breve para conferir.
+                </p>
+
+                <a
+                    href="{% url 'home' %}#contato"
+                    class="portfolio-botao"
+                >
+                    Fale com a HBL GeoTech <span>↗</span>
+                </a>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- LINK PARA O PORTFÓLIO -->
+        <div class="portfolio-rodape">
+
+            <a href="{% url 'catalogo_servicos' %}#catalogo">
+                Ver catálogo <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

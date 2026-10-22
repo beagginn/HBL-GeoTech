@@ -1,0 +1,20 @@
+
+{% extends "HBL/painel/base_painel.html" %}
+
+{% block title %}Excluir {{ tipo }} | HBL GeoTech{% endblock %}
+
+{% block content %}
+<div class="painel-card">
+    <h1>Excluir {{ tipo }}</h1>
+    <p>Tem certeza de que deseja excluir <strong>{{ objeto }}</strong>?</p>
+    <p>Essa ação não poderá ser desfeita.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="painel-acoes" style="margin-top: 24px;">
+            <button type="submit" class="painel-btn">Sim, excluir</button>
+            <a href="{% url voltar_url %}" class="painel-btn painel-btn-secundario">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+
+{% extends "HBL/painel/base_painel.html" %}
+
+{% block title %}{{ titulo_pagina }} | HBL GeoTech{% endblock %}
+
+{% block content %}
+<div class="painel-topo">
+    <div>
+        <h1>{{ titulo_pagina }}</h1>
+        <p>Preencha as informações do projeto para o portfólio.</p>
+    </div>
+</div>
+
+<div class="painel-card">
+    <form method="post" enctype="multipart/form-data" class="painel-form">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div>
+                {% if field.field.widget.input_type == "checkbox" %}
+                    <label>{{ field }} {{ field.label }}</label>
+                {% else %}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                {% endif %}
+
+                {% if field.help_text %}<small class="helptext">{{ field.help_text }}</small>{% endif %}
+                {% for error in field.errors %}<p>{{ error }}</p>{% endfor %}
+            </div>
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+            <div class="painel-alerta">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="painel-acoes" style="margin-top: 24px;">
+            <button class="painel-btn" type="submit">Salvar projeto</button>
+            <a class="painel-btn painel-btn-secundario" href="{% url 'painel_projetos' %}">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

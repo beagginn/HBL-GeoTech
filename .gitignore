@@ -1,0 +1,34 @@
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Arquivos Python
+__pycache__/
+*.py[cod]
+
+# Banco de dados local e backups
+db.sqlite3
+db.sqlite3.backup
+media-backup/
+
+# Arquivos estáticos gerados
+staticfiles/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+
+# Arquivos do sistema
+.DS_Store
+.neon
+node_modules/
+
+# Arquivos Node/Neon auxiliares
+node_modules/
+package.json
+package-lock.json
+neon.ts
+
+# Mídia enviada localmente
+media/

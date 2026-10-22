@@ -1,0 +1,46 @@
+
+{% extends "HBL/painel/base_painel.html" %}
+
+{% block title %}Serviços | HBL GeoTech{% endblock %}
+
+{% block content %}
+<div class="painel-topo">
+    <div>
+        <h1>Serviços</h1>
+        <p>Gerencie os serviços exibidos no site.</p>
+    </div>
+    <a class="painel-btn" href="{% url 'criar_servico' %}">+ Adicionar serviço</a>
+</div>
+
+<div class="painel-card">
+    <div class="painel-tabela-wrap">
+        <table class="painel-tabela">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Ordem</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for servico in servicos %}
+                <tr>
+                    <td>{{ servico.nome }}</td>
+                    <td>{% if servico.ativo %}Ativo{% else %}Inativo{% endif %}</td>
+                    <td>{{ servico.ordem }}</td>
+                    <td>
+                        <div class="painel-acoes">
+                            <a class="painel-btn painel-btn-secundario" href="{% url 'editar_servico' servico.pk %}">Editar</a>
+                            <a class="painel-btn" href="{% url 'excluir_servico' servico.pk %}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">Nenhum serviço cadastrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

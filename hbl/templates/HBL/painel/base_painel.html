@@ -1,0 +1,141 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Painel HBL GeoTech{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'HBL/style.css' %}">
+    <style>
+        .painel-layout { display: flex; min-height: 100vh; background: #F4F1E9; color: #203329; }
+        .painel-sidebar { width: 245px; flex-shrink: 0; background: #203329; color: #F4F1E9; padding: 30px 20px; }
+        .painel-sidebar h2 { font-size: 21px; margin: 0 0 8px; }
+        .painel-sidebar p { color: #c8d0c2; font-size: 13px; margin-bottom: 35px; }
+        .painel-sidebar a { display: block; color: #F4F1E9; text-decoration: none; padding: 13px 12px; border-radius: 8px; margin: 5px 0; }
+        .painel-sidebar a:hover { background: #54664f; }
+        .painel-main { flex: 1; min-width: 0; padding: 35px; }
+        .painel-topo { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 30px; }
+        .painel-card { background: white; border-radius: 14px; padding: 23px; box-shadow: 0 4px 18px #2033290d; }
+        .painel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-bottom: 25px; }
+        .painel-numero { font-size: 34px; font-weight: 700; margin: 12px 0 4px; }
+        .painel-btn { display: inline-block; border: 0; border-radius: 8px; padding: 11px 16px; background: #203329; color: white; text-decoration: none; cursor: pointer; font: inherit; }
+        .painel-btn:hover { background: #54664f; color: white; }
+        .painel-btn-secundario { background: #e5e9e0; color: #203329; }
+        .painel-tabela { width: 100%; border-collapse: collapse; }
+        .painel-tabela th, .painel-tabela td { text-align: left; padding: 13px 10px; border-bottom: 1px solid #e8e9e3; vertical-align: middle; }
+        .painel-tabela th { color: #54664f; font-size: 13px; }
+        .painel-form label { display: block; font-weight: 600; margin: 16px 0 7px; }
+        .painel-form input:not([type="checkbox"]), .painel-form textarea, .painel-form select { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #d8ddd3; border-radius: 8px; background: white; font: inherit; }
+        .painel-form input[type="checkbox"] { margin-right: 8px; }
+        .painel-form .helptext { display: block; color: #667260; font-size: 12px; margin-top: 5px; }
+        .painel-alerta { padding: 12px 16px; margin-bottom: 20px; border-radius: 8px; background: #e5e9e0; }
+        .painel-acoes { display: flex; gap: 8px; flex-wrap: wrap; }
+        .painel-imagem { width: 65px; height: 48px; object-fit: cover; border-radius: 6px; }
+        @media (max-width: 760px) {
+            .painel-layout { display: block; }
+            .painel-sidebar { width: auto; }
+            .painel-main { padding: 20px 14px; }
+            .painel-grid { grid-template-columns: 1fr; }
+            .painel-topo { align-items: flex-start; flex-direction: column; }
+            .painel-tabela { font-size: 13px; }
+            .painel-tabela th, .painel-tabela td { padding: 10px 5px; }
+            .painel-tabela-wrap { overflow-x: auto; }
+        }
+
+                /* Botão para recolher e expandir a barra lateral */
+        .painel-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #d8ddd3;
+            border-radius: 10px;
+            background: white;
+            color: #203329;
+            font-size: 23px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .painel-toggle:hover {
+            background: #e5e9e0;
+        }
+
+        /* Transição suave */
+        .painel-sidebar {
+            transition: width 0.25s ease, padding 0.25s ease;
+            overflow: hidden;
+        }
+
+        .painel-layout.sidebar-recolhida .painel-sidebar {
+            width: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .painel-main {
+            transition: padding 0.25s ease;
+        }
+
+        .painel-topo {
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+<body>
+<div class="painel-layout">
+    <aside class="painel-sidebar" id="painelSidebar">        
+        <h2>HBL GeoTech</h2>
+        <p>Painel administrativo</p>
+        <nav>
+            <a href="{% url 'painel' %}">Visão geral</a>
+            <a href="{% url 'painel_servicos' %}">Serviços</a>
+            <a href="{% url 'painel_projetos' %}">Portfólio</a>
+            <a href="{% url 'home' %}" target="_blank">Ver site público ↗</a>
+            <a href="{% url 'admin:logout' %}">Sair do Django Admin</a>
+        </nav>
+    </aside>
+
+    <main class="painel-main">
+        <div style="margin-bottom: 20px;">
+            <button
+                type="button"
+                class="painel-toggle"
+                id="toggleSidebar"
+                aria-label="Recolher ou expandir menu"
+                aria-expanded="true"
+                aria-controls="painelSidebar"
+            >
+                ☰
+            </button>
+        </div>          
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="painel-alerta">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+</div>
+
+<script>
+    const botaoMenu = document.getElementById("toggleSidebar");
+    const layoutPainel = document.querySelector(".painel-layout");
+
+    botaoMenu.addEventListener("click", function () {
+        const recolhida = layoutPainel.classList.toggle("sidebar-recolhida");
+
+        botaoMenu.setAttribute("aria-expanded", String(!recolhida));
+        botaoMenu.setAttribute(
+            "aria-label",
+            recolhida ? "Expandir menu" : "Recolher menu"
+        );
+    });
+</script>
+
+</body>
+</html>

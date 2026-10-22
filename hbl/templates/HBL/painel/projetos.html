@@ -1,0 +1,54 @@
+
+{% extends "HBL/painel/base_painel.html" %}
+
+{% block title %}Portfólio | HBL GeoTech{% endblock %}
+
+{% block content %}
+<div class="painel-topo">
+    <div>
+        <h1>Portfólio</h1>
+        <p>Gerencie os projetos apresentados no site.</p>
+    </div>
+    <a class="painel-btn" href="{% url 'criar_projeto' %}">+ Adicionar projeto</a>
+</div>
+
+<div class="painel-card">
+    <div class="painel-tabela-wrap">
+        <table class="painel-tabela">
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Projeto</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for projeto in projetos %}
+                <tr>
+                    <td>
+                        {% if projeto.imagem %}
+                            <img class="painel-imagem" src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}">
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
+                    <td>{{ projeto.titulo }}</td>
+                    <td>{{ projeto.categoria|default:"—" }}</td>
+                    <td>{% if projeto.ativo %}Ativo{% else %}Inativo{% endif %}</td>
+                    <td>
+                        <div class="painel-acoes">
+                            <a class="painel-btn painel-btn-secundario" href="{% url 'editar_projeto' projeto.pk %}">Editar</a>
+                            <a class="painel-btn" href="{% url 'excluir_projeto' projeto.pk %}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5">Nenhum projeto cadastrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

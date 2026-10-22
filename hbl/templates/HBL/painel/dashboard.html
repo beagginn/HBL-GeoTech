@@ -1,0 +1,37 @@
+
+{% extends "HBL/painel/base_painel.html" %}
+
+{% block title %}Dashboard | HBL GeoTech{% endblock %}
+
+{% block content %}
+<div class="painel-topo">
+    <div>
+        <h1>Visão geral</h1>
+        <p>Bem-vindo ao painel administrativo da HBL GeoTech.</p>
+    </div>
+</div>
+
+<div class="painel-grid">
+    <div class="painel-card">
+        <p>Serviços cadastrados</p>
+        <div class="painel-numero">{{ total_servicos }}</div>
+        <p>{{ servicos_ativos }} ativos no site</p>
+        <a class="painel-btn" href="{% url 'painel_servicos' %}">Gerenciar serviços</a>
+    </div>
+
+    <div class="painel-card">
+        <p>Projetos cadastrados</p>
+        <div class="painel-numero">{{ total_projetos }}</div>
+        <p>{{ projetos_ativos }} ativos no site</p>
+        <a class="painel-btn" href="{% url 'painel_projetos' %}">Gerenciar portfólio</a>
+    </div>
+</div>
+
+<div class="painel-card">
+    <h2>Acesso rápido</h2>
+    <div class="painel-acoes">
+        <a class="painel-btn" href="{% url 'criar_servico' %}">+ Novo serviço</a>
+        <a class="painel-btn" href="{% url 'criar_projeto' %}">+ Novo projeto</a>
+    </div>
+</div>
+{% endblock %}
