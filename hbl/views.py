@@ -18,7 +18,7 @@ def home(request):
 def catalogo_servicos(request):
     servicos = Servico.objects.filter(ativo=True)
 
-    return render(request, "hbl/catalogo.html", {
+    return render(request, "HBL/catalogo.html", {
         "servicos": servicos,
     })
 
