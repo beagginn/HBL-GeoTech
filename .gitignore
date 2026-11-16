@@ -31,4 +31,4 @@ package-lock.json
 neon.ts
 
 # Mídia enviada localmente
-media/
+media/.DS_Store

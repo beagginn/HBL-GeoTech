@@ -44,9 +44,14 @@
                 class="logo"
             >
 
-            <span class="marca-nome">HBL GeoTech</span>
+            <span class="marca-nome">
+                <strong>HBL</strong>
+                <span class="marca-geotech">GeoTech</span>
+            </span>
 
         </a>
+
+
 
 
         <!-- BOTÃO DO MENU MOBILE -->
@@ -82,20 +87,18 @@
                 Diferenciais
             </a>
 
-            <a href="{% url 'catalogo_servicos' %}">
+            <!-- <a href="{% url 'catalogo_servicos' %}">
                 Catálogo
-            </a>
-
-            <a href="{% url 'portfolio' %}#portfolio">
-                Portfólio
-            </a>
+            </a> -->
 
             <a
                 href="{% url 'home' %}#contato"
                 class="menu-contato"
             >
            
-                Fale conosco <span>↗</span>
+                Fale conosco <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+</svg></span>
             </a>
 
         </nav>
@@ -112,19 +115,21 @@
     </main>
 
 
-    <!-- RODAPÉ -->
 
+    <!-- RODAPÉ -->
     <footer class="rodape">
 
         <div class="rodape-superior">
 
             <div class="rodape-identidade">
                 <a href="{% url 'home' %}#inicio" class="marca marca-rodape">
-                    <span class="logo-texto">HBL GeoTech
+                    <span class="logo-texto">
+                        <strong>HBL</strong><span>GeoTech</span>
+                    </span>
                 </a>
 
                 <p>
-                    Tecnologia e inteligência geográfica.
+                    Precisão em cada coordenada.
                 </p>
             </div>
 
@@ -133,8 +138,6 @@
                 <a href="{% url 'home' %}#sobre">Sobre</a>
                 <a href="{% url 'home' %}#servicos">Serviços</a>
                 <a href="{% url 'home' %}#diferenciais">Diferenciais</a>
-                <a href="{% url 'catalogo_servicos' %}">Catálogo</a>
-                <a href="{% url 'home' %}#portfolio">Portfólio</a>
                 <a href="{% url 'home' %}#contato">Contato</a>
             </nav>
 
@@ -148,28 +151,14 @@
             </span>
 
             <a href="{% url 'home' %}#inicio" class="voltar-topo">
-                Voltar ao topo <span>↑</span>
+                Voltar ao topo <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+</svg></span>
             </a>
 
         </div>
 
     </footer>
-
-
-    <!-- JAVASCRIPT PRINCIPAL -->
-    <script src="{% static 'hbl/js/script.js' %}"></script>
-
-    {% block extra_js %}{% endblock %}
-
-
-    <!-- ANO AUTOMÁTICO -->
-    <script>
-        const elementoAno = document.getElementById("ano-atual");
-
-        if (elementoAno) {
-            elementoAno.textContent = new Date().getFullYear();
-        }
-    </script>
 
 </body>
 
